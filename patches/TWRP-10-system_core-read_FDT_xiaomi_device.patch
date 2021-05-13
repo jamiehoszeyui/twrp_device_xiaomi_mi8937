@@ -1,0 +1,21 @@
+diff --git a/init/property_service.cpp b/init/property_service.cpp
+index f2c7462ab..baf210d08 100644
+--- a/init/property_service.cpp
++++ b/init/property_service.cpp
+@@ -879,6 +879,16 @@ void property_load_boot_defaults(bool load_debug_prop) {
+     // loaded in the later property files to override the properties in loaded in the earlier
+     // property files, regardless of if they are "ro." properties or not.
+     std::map<std::string, std::string> properties;
++
++    std::string xiaomi_device;
++    if (ReadFileToString("/proc/device-tree/xiaomi,device", &xiaomi_device)) {
++        property_set("ro.build.product", xiaomi_device);
++        property_set("ro.product.device", xiaomi_device);
++        property_set("ro.product.odm.device", xiaomi_device);
++        property_set("ro.product.system.device", xiaomi_device);
++        property_set("ro.product.vendor.device", xiaomi_device);
++    }
++
+     if (!load_properties_from_file("/system/etc/prop.default", nullptr, &properties)) {
+         // Try recovery path
+         if (!load_properties_from_file("/prop.default", nullptr, &properties)) {

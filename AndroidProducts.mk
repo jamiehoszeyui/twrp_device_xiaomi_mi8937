@@ -17,3 +17,5 @@
 PRODUCT_MAKEFILES := \
 	$(LOCAL_DIR)/omni_mi8937.mk \
 	$(LOCAL_DIR)/full_mi8937.mk
+
+COMMON_LUNCH_CHOICES += omni_mi8937-eng omni_mi8937-userdebug

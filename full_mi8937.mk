@@ -25,10 +25,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcryptfs_hw
 
-# Kernel
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/kernel:kernel
-
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := mi8937
 PRODUCT_NAME := full_mi8937
