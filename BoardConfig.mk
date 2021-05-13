@@ -90,6 +90,7 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_USE_TOOLBOX := true
 TW_HAS_EDL_MODE := true
 TW_EXTRA_LANGUAGES := true
+TWRP_INCLUDE_LOGCAT := true
 
 # Disable Mouse Cursor
 TW_INPUT_BLACKLIST := "hbtp_vm"
