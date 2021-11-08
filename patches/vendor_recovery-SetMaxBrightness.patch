@@ -1,15 +1,29 @@
 diff --git a/FoxExtras/sbin/foxstart.sh b/FoxExtras/sbin/foxstart.sh
-index bf7ddb8..85d75ed 100755
+index eaddec6..e5b9fc3 100755
 --- a/FoxExtras/sbin/foxstart.sh
 +++ b/FoxExtras/sbin/foxstart.sh
-@@ -443,6 +443,10 @@ flashlight_Leds_config() {
-    echo "0" > /sys/class/leds/led:torch_1/max_brightness
-    echo "0" > /sys/class/leds/torch-light1/max_brightness
-    echo "0" > /sys/class/leds/led:flash_1/max_brightness
-+
-+   if [ "$(cat /sys/class/leds/flashlight/device/of_node/compatible)" = "qcom,leds-back-gpio-flash_ulysse" ]; then
-+       echo "1" > /sys/class/leds/flashlight/max_brightness
-+   fi
+@@ -427,22 +427,8 @@ backup_restore_FS() {
+ 
+ # fix yellow flashlight on mido/vince/kenzo and configure Leds on others
+ flashlight_Leds_config() {
+-   case "$FOX_DEVICE" in
+-       vince)
+-   		echo "0" > /sys/devices/soc/qpnp-flash-led-24/leds/led:torch_1/max_brightness;
+-       	;;
+-       riva)
+-            	echo 1 > /sys/class/leds/flashlight/max_brightness;
+-            	echo 0 > /sys/class/leds/flashlight/brightness;
+-         ;;
+-       *)
+-       		return;
+-       	;;
+-   esac
+-
+-   echo "0" > /sys/class/leds/led:torch_1/max_brightness
+-   echo "0" > /sys/class/leds/torch-light1/max_brightness
+-   echo "0" > /sys/class/leds/led:flash_1/max_brightness
++   echo 1 > /sys/class/leds/flashlight/max_brightness;
++   echo 0 > /sys/class/leds/flashlight/brightness;
  }
  
  # start, and mark that we have started
