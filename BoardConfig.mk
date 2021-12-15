@@ -101,8 +101,16 @@ TW_INCLUDE_FUSE_EXFAT := true
 # NTFS Support
 TW_INCLUDE_FUSE_NTFS := true
 
-# OrangeFox
-OF_ALLOW_DISABLE_NAVBAR := 1
-OF_NO_TREBLE_COMPATIBILITY_CHECK := 1
-OF_USE_TWRP_SAR_DETECT := 1
-OF_MAINTAINER := mi-msm8937
+# SHRP Flags
+SHRP_PATH := device/xiaomi/mi8937
+SHRP_MAINTAINER := TechyMinati
+SHRP_DEVICE_CODE := mi8937
+SHRP_EDL_MODE := 1
+SHRP_EXTERNAL := /external_sd
+SHRP_INTERNAL := /sdcard
+SHRP_OTG := /usb_otg
+SHRP_FLASH := 1
+SHRP_FLASH_MAX_BRIGHTNESS := 200
+SHRP_REC := /dev/block/bootdevice/by-name/recovery
+SHRP_REC_TYPE := Treble
+SHRP_DARK := true
